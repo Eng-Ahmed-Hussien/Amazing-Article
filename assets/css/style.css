@@ -274,6 +274,7 @@ ul.skills li .accordion.active svg {
   display: none;
   background-color: #dbdada;
   overflow: hidden;
+
 }
 
 @media (max-width: 600px) {
