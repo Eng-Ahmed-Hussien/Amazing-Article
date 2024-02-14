@@ -278,6 +278,10 @@ ul.skills li .accordion.active svg {
 }
 
 @media (max-width: 600px) {
+  body {
+    overflow-x: hidden !important;
+  }
+
   ul.skills {
     padding: 0 0 0 5px;
   }
