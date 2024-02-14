@@ -6,7 +6,7 @@
 
 <h2>🚀 Demo</h2>
 
-[Live Demo Here👉🏻♥️](https://github.com/Eng-Ahmed-Hussien/Amazing-Article/)
+[Live Demo Here👉🏻♥️](https://eng-ahmed-hussien.github.io/Amazing-Article/)
 
 
 <h2>🧐 Features</h2>
