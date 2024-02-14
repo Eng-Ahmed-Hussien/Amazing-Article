@@ -1,0 +1,466 @@
+/*--------------------------------------------------------------------------------*/
+/*
+  
+  * This is the style sheet for the HTML document written in HTML5.
+  * It contains selectors, properties and values which are used to control the layout and appearance of web page.
+          content of Style file:-
+           1- Reset All Element Style & Setup basic.
+            2- Colors' Definition .
+              3- Common Classes Style Section.
+                4- Container Section.
+                  5- Navbar Section.
+                    6- Content Section.
+                      7- Footer Section.
+                    
+*/
+/*---------------------------------------------------------------------------------------*/
+/*====================================Start Reset All Element Style &  Setup basic =========================================*/
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #201f27;
+  color: #222;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/*============================================== End Reset All Element Style & Setup basic =============================================*/
+/*================================================== Start Colors' Definition ===================================================*/
+
+:root {
+  --light-color: #ffffff;
+  --linked-color: rgb(29, 98, 201);
+  --facebook-color: rgb(2, 22, 171);
+  --whats-color: rgb(15, 252, 114);
+  --black-color: rgb(17, 13, 13);
+  --git-color: rgba(23, 11, 17, 0.798);
+}
+
+/*============================================== End Color' Definition ================================================*/
+/*============================================== Start  Common Classes Style  =============================================*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+/*============================================== End Common Classes Style  ================================================*/
+/*============================================== Container Section ================================================*/
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #dbdada;
+  padding: 50px;
+  position: relative;
+  transition: transform 0.5s;
+  transform-origin: top left;
+}
+
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  z-index: 1000;
+}
+
+.circle {
+  background-color: #201f27;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button.close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.container.show-nav+nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+/*============================================== End Container Section ================================================*/
+/*============================================== Start Navbar Section ================================================*/
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0;
+  transition: all 0.4s;
+  transform: translateX(-100%);
+  transition: transform ease-in;
+}
+
+nav ul li svg {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+nav ul li+li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+nav ul li+li+li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+nav ul li+li+li+li {
+  margin-left: 50px;
+  transform: translateX(-250%);
+}
+
+nav a {
+  color: #fafafa;
+  text-decoration: none;
+}
+
+nav li:hover {
+  color: #b7b4b4;
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+
+/*============================================== End Navbar Section ================================================*/
+/*============================================== Content Section ================================================*/
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+  color: #180c7f;
+  font-weight: bolder;
+}
+
+.content h3 {
+  position: relative;
+  display: block;
+  width: fit-content;
+  padding-bottom: 5px;
+}
+
+.content h3::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  content: "";
+  transform-origin: left;
+  transition: all 0.3s ease-in-out;
+  background-color: #180c7f;
+}
+
+.content small {
+  color: #5b5c5e;
+  letter-spacing: 1.5px;
+}
+
+p {
+  color: #2020209e;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+ul.skills {
+  background-color: rgba(27, 25, 41, 0.838);
+  padding: 10px 0 10px 20px;
+}
+
+ul.skills>li {
+  margin-bottom: 10px;
+}
+
+ul.skills li:last-child {
+  margin-bottom: 0;
+}
+
+ul.skills li .accordion {
+  position: relative;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  display: block;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+ul.skills li .accordion.active,
+ul.skills li .accordion:hover {
+  background-color: #b0b0b3;
+}
+
+ul.skills li .accordion svg {
+  display: none;
+}
+
+ul.skills li .accordion.active svg {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #a20a0a;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: #dbdada;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  ul.skills {
+    padding: 0 0 0 5px;
+  }
+
+  .footer .social-icon {
+    margin-bottom: 20px;
+  }
+}
+
+.skills li:last-child .panel {
+  background-color: #fff !important;
+}
+
+.learn-More {
+  all: unset;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+}
+
+.learn-More a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 2px solid;
+  font-size: 1.3rem;
+  border: 1px solid rgb(226, 222, 222);
+  margin: 10px;
+  padding: 5px;
+  border-radius: 0.4rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.learn-More li a svg {
+  font-size: 2.5rem;
+}
+
+.fa-html5 {
+  color: #e95004;
+}
+
+.fa-css3 {
+  color: #42b8ebdd;
+}
+
+.fa-js {
+  color: rgb(255, 230, 0);
+  background-color: #000;
+}
+
+.fa-bootstrap {
+  color: #67057d;
+  background-color: #ffffff;
+}
+
+.fa-font-awesome {
+  color: #074f9c;
+}
+
+.fa-node {
+  color: rgb(9, 157, 34);
+}
+
+.fa-vuejs {
+  color: rgb(9, 106, 74);
+}
+
+.fa-react {
+  color: #074f9c;
+}
+
+.fa-angular {
+  color: rgb(196, 19, 19);
+}
+
+.fa-git-alt {
+  color: rgb(255, 69, 0);
+}
+
+.fa-codepen {
+  color: rgba(56, 35, 8, 0.907);
+}
+
+.fa-free-code-camp {
+  color: #12086e;
+}
+
+.fa-code {
+  color: rgb(161, 21, 21);
+}
+
+.fa-laptop-code {
+  color: rgb(64, 245, 251);
+}
+
+/*==============================================  End Landing Section ================================================*/
+/*====================================================Footer Section=================================================*/
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffffee;
+}
+
+.footer p {
+  color: #5f5959;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.footer p .name {
+  color: #cf6565;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer p .name:hover {
+  color: rgb(2, 0, 111);
+  font-size: 1.02rem;
+  font-weight: bolder;
+}
+
+.social-icon a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 2px solid;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  margin-left: 0.6rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icon a:first-child {
+  color: var(--linked-color);
+  border-color: var(--linked-color);
+}
+
+.social-icon a:nth-child(2) {
+  color: var(--facebook-color);
+  border-color: var(--facebook-color);
+}
+
+.social-icon a:nth-child(3) {
+  color: var(--whats-color);
+  border-color: var(--whats-color);
+}
+
+.social-icon a:nth-child(4) {
+  color: var(--git-color);
+  border-color: var(--git-color);
+}
+
+.social-icon a:first-child:hover {
+  box-shadow: 0 0 9px var(--linked-color);
+  background-color: var(--linked-color);
+}
+
+.social-icon a:nth-child(2):hover {
+  box-shadow: 0 0 9px var(--facebook-color);
+  background-color: var(--facebook-color);
+}
+
+.social-icon a:nth-child(3):hover {
+  box-shadow: 0 0 9px var(--whats-color);
+  background-color: var(--whats-color);
+}
+
+.social-icon a:nth-child(4):hover {
+  box-shadow: 0 0 9px var(--git-color);
+  background-color: var(--git-color);
+}
+
+.social-icon a:hover {
+  color: var(--light-color);
+  transform: scale(1.05) translate(-5px);
+  border: 3px solid var(--light-color);
+}
+
+/*================================================= End Footer Section===========================================================*/
